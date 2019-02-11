@@ -1,0 +1,26 @@
+<h1>ADMIN</h1>
+</br>
+Email: <%= @current_user.email %>
+</br>
+First Name: <%= @current_user.first_name %>
+</br>
+Last Name: <%= @current_user.last_name %>
+</br>
+Role: <%= @current_user.role %>
+</br></br></br>
+<h2>Invite Member</h2>
+<%= form_for '/new_member' do |f| %>
+  First name: <%= f.text_field :first_name %>
+  <br/>
+   Last name: <%= f.text_field :last_name %>
+   <br/>
+   Email: <%= f.text_field :email_name %>
+  <br/>
+  <%= f.submit "Invite" %>
+<% end %>
+</br></br></br>
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+  </li>
+<% end %>
